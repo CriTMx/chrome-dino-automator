@@ -23,7 +23,7 @@ def play():
     while True:
         t1 = time.time()
 
-        if keyboard.is_pressed("space"):                # Press space to stop the bot
+        if keyboard.is_pressed("e"):                # Press space to stop the bot
             break
         
         screenshot = pagui.screenshot(region=(pt_x, pt_y, width, height))       # Screenshot the game window to process
@@ -42,7 +42,7 @@ def play():
                 keyboard.release('down')                # Let go of duck key
                 break
 
-            interval_time = cur_jump_time - last_interval_time
+            interval_time = cur_jump_time - last_jump_time
             if last_interval_time != 0 and math.floor(interval_time) != math.floor(last_interval_time):     # This checks if the time between current and last jump frames are the same. If they're not, the game is speeding up.
                 x_end += 4                              # Increase the scanning range on the x_axis to accommodate for the increasing game speed
                 if x_end >= width:                      # Limit the value of the x axis range to window width
